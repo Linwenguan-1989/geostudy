@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-box {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #BC1F1A;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        img {
+            max-width: 200px;
+            border: 2px solid #ddd;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 页面调试信息</h1>
+
+    <div class="debug-box">
+        <h2>1. 服务器状态</h2>
+        <p class="success">✅ 服务器正常运行</p>
+        <p>端口: 8080</p>
+    </div>
+
+    <div class="debug-box">
+        <h2>2. CSS测试</h2>
+        <link rel="stylesheet" href="css/style.css">
+        <p style="color: var(--primary-color);">如果这段文字是红色，说明CSS变量正常</p>
+    </div>
+
+    <div class="debug-box">
+        <h2>3. 图片测试</h2>
+        <img src="images/instructor-yuanfeng.jpg" alt="讲师图片" onerror="this.style.border='2px solid red'; this.alt='图片加载失败'">
+        <p>👆 如果图片显示，说明图片路径正常</p>
+    </div>
+
+    <div class="debug-box">
+        <h2>4. 外部资源测试</h2>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+        <p style="font-family: 'Noto Sans SC', sans-serif;">这段文字应该显示思源黑体字体</p>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+        <i class="fas fa-check-circle" style="font-size: 24px; color: green;"></i> 如果看到勾号图标，说明Font Awesome加载成功
+    </div>
+
+    <div class="debug-box">
+        <h2>5. JavaScript测试</h2>
+        <button onclick="alert('JavaScript正常工作！')">点击测试JS</button>
+    </div>
+
+    <div class="debug-box">
+        <h2>6. 返回主页面</h2>
+        <a href="/" style="display: inline-block; background: #BC1F1A; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            查看主页面 →
+        </a>
+        <br><br>
+        <a href="/simple-test.html" style="color: #BC1F1A;">查看简化测试页</a>
+    </div>
+
+    <script>
+        console.log('✅ Debug页面加载成功');
+        console.log('当前URL:', window.location.href);
+        console.log('User Agent:', navigator.userAgent);
+    </script>
+</body>
+</html>
