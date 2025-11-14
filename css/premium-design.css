@@ -1,0 +1,441 @@
+/* ============================================
+   高级设计系统 - Premium Design System
+   ============================================ */
+
+/* ============================================
+   1. 全局字体与排版升级
+   ============================================ */
+
+:root {
+    /* 高级字体系统 */
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+    --font-heading: "Noto Sans SC", -apple-system, sans-serif;
+    
+    /* 字体大小升级 */
+    --text-xs: 13px;
+    --text-sm: 15px;
+    --text-base: 17px;
+    --text-lg: 19px;
+    --text-xl: 22px;
+    --text-2xl: 28px;
+    --text-3xl: 36px;
+    --text-4xl: 48px;
+    
+    /* 行高优化 */
+    --leading-tight: 1.25;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.75;
+    
+    /* 字重升级 */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* 间距系统升级 */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+    --space-2xl: 96px;
+    
+    /* 高级配色 */
+    --color-text-primary: #0a0a0a;
+    --color-text-secondary: #525252;
+    --color-text-tertiary: #737373;
+    --color-border: #e5e5e5;
+    --color-bg-subtle: #fafafa;
+}
+
+/* 全局字体优化 */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+    font-weight: var(--font-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题层级优化 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+}
+
+.section-title {
+    font-size: var(--text-4xl) !important;
+    font-weight: var(--font-bold) !important;
+    margin-bottom: var(--space-sm) !important;
+    letter-spacing: -0.03em !important;
+}
+
+.section-subtitle {
+    font-size: var(--text-lg) !important;
+    font-weight: var(--font-normal) !important;
+    color: var(--color-text-secondary) !important;
+    line-height: var(--leading-relaxed) !important;
+    margin-bottom: var(--space-xl) !important;
+}
+
+/* 段落优化 */
+p {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+/* Section间距优化 */
+.section {
+    padding: var(--space-2xl) 0;
+}
+
+/* ============================================
+   2. 高级客户证言设计
+   ============================================ */
+
+.testimonials-premium {
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    padding: var(--space-2xl) 0;
+}
+
+.testimonials-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.testimonial-card-premium {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #BC1F1A 0%, #8B1612 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: #BC1F1A;
+}
+
+.testimonial-card-premium:hover::before {
+    transform: scaleX(1);
+}
+
+/* 头像设计 */
+.testimonial-avatar {
+    margin-bottom: var(--space-md);
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #BC1F1A 0%, #8B1612 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(188, 31, 26, 0.2);
+}
+
+/* 信息区域 */
+.testimonial-info {
+    margin-bottom: var(--space-md);
+    width: 100%;
+}
+
+.testimonial-name {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
+}
+
+.testimonial-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+}
+
+/* 引言文字 */
+.testimonial-quote {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    font-style: normal;
+    position: relative;
+    padding: var(--space-md);
+    background: var(--color-bg-subtle);
+    border-radius: 12px;
+    margin-top: auto;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-size: 48px;
+    color: #BC1F1A;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+/* ============================================
+   3. 响应式设计
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .testimonials-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --text-base: 16px;
+        --text-lg: 18px;
+        --text-xl: 20px;
+        --text-2xl: 24px;
+        --text-3xl: 30px;
+        --text-4xl: 36px;
+        --space-lg: 32px;
+        --space-xl: 48px;
+        --space-2xl: 64px;
+    }
+    
+    .testimonials-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .section {
+        padding: var(--space-xl) 0;
+    }
+    
+    .testimonial-card-premium {
+        padding: var(--space-md);
+    }
+    
+    .avatar-circle {
+        width: 64px;
+        height: 64px;
+        font-size: 28px;
+    }
+}
+
+/* ============================================
+   4. 其他组件高级化
+   ============================================ */
+
+/* CTA按钮升级 */
+.cta-button.primary {
+    font-size: var(--text-lg) !important;
+    font-weight: var(--font-semibold) !important;
+    padding: 18px 40px !important;
+    border-radius: 12px !important;
+    letter-spacing: -0.01em !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(188, 31, 26, 0.3) !important;
+}
+
+/* 卡片组件升级 */
+.value-card-simple,
+.why-card,
+.audience-card,
+.package-item {
+    border: 1px solid var(--color-border) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.value-card-simple:hover,
+.why-card:hover,
+.audience-card:hover,
+.package-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
+    border-color: #BC1F1A !important;
+}
+
+/* 表单输入升级 */
+input, textarea, select {
+    font-size: var(--text-base) !important;
+    font-family: var(--font-primary) !important;
+    padding: 14px 18px !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--color-border) !important;
+    transition: all 0.2s ease !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #BC1F1A !important;
+    box-shadow: 0 0 0 3px rgba(188, 31, 26, 0.1) !important;
+}
+
+/* 链接升级 */
+a {
+    transition: all 0.2s ease;
+}
+
+/* Hero区域升级 */
+.hero-title {
+    font-size: var(--text-4xl) !important;
+    line-height: var(--leading-tight) !important;
+    letter-spacing: -0.03em !important;
+}
+
+.hero-subtitle {
+    font-size: var(--text-xl) !important;
+    line-height: var(--leading-relaxed) !important;
+    color: var(--color-text-secondary) !important;
+}
+
+/* 定价卡片升级 */
+.pricing-card {
+    border: 2px solid var(--color-border) !important;
+    border-radius: 20px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.pricing-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12) !important;
+}
+
+.current-price {
+    font-size: 56px !important;
+    font-weight: var(--font-bold) !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* 讲师卡片升级 */
+.instructor-card {
+    border: 1px solid var(--color-border) !important;
+    border-radius: 16px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.instructor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 数据展示升级 */
+.data-number {
+    font-size: 64px !important;
+    font-weight: var(--font-bold) !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* 标签升级 */
+.tag, .badge {
+    font-size: var(--text-sm) !important;
+    font-weight: var(--font-medium) !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   5. 微动效与细节优化
+   ============================================ */
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 选中文本样式 */
+::selection {
+    background: rgba(188, 31, 26, 0.2);
+    color: var(--color-text-primary);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #BC1F1A;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8B1612;
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 容器最大宽度优化 */
+.container {
+    max-width: 1280px !important;
+    padding-left: var(--space-lg) !important;
+    padding-right: var(--space-lg) !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: var(--space-md) !important;
+        padding-right: var(--space-md) !important;
+    }
+}
